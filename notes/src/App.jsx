@@ -21,7 +21,7 @@ const App = (props) => {
   const [notes, setNotes]=useState([])
   const [newNote, setNewNote]=useState('a new note...')
   const [showAll, setShowAll]=useState(true)
-  const [errorMsg, setErrorMsg]=useState('some error happened...')
+  const [errorMsg, setErrorMsg]=useState(null)
   
   const hook=()=>{
     console.log('effect')
