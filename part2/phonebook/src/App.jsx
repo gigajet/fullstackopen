@@ -71,10 +71,9 @@ const App = () => {
             setNewName('')
             setNewPhone('')
             showStatus(`Entry ${p.name} updated successfully`)
-          }).catch(e=>{
-            console.log(`${personObj.name} is deleted in the server.`)
-            setPersons(persons.filter(p=>p.name!==personObj.name))
-            showStatus(`Information of ${personObj.name} is deleted in the server.`, true)
+          }).catch(error=>{
+            console.log('error',error)
+            showStatus(error.response.data.error, true)
           })
       }
     } else {
@@ -90,6 +89,9 @@ const App = () => {
         setNewName('')
         setNewPhone('')
         showStatus(`Entry ${personObj.name} added successfully`)
+      }).catch(error=>{
+        console.log('error',error)
+        showStatus(error.response.data.error, true)
       })
     }
   }
